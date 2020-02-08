@@ -1,4 +1,4 @@
-package com.eightd.smartfridge;
+package com.eightb.smartfridge;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
