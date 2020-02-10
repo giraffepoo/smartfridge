@@ -26,7 +26,8 @@
 
 |Action  |Endpoint  | Payload |
 |--|--|--|
-| POST addFoodItem | /api/fooditem | -String name of item |
+| POST addFoodItem | /api/fooditem/add | -String name of item |
+| POST removeFoodItem | /api/fooditem/remove | -String name of item |
 |GET getAllFoodItems|/api/fooditem|
 |GET getFoodItem|/api/fooditem/{name}|
 |DELETE deleteFoodItem|/api/fooditem/{name}|

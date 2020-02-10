@@ -28,7 +28,7 @@ public class FoodItemController {
         return repository.findByName(name);
     }
 
-    @PostMapping("/")
+    @PostMapping("/add")
     public FoodItem addFoodItem(@RequestBody String name) {
         FoodItem foodToAdd = repository.findByName(name);
 
@@ -38,6 +38,21 @@ public class FoodItemController {
             foodToAdd.setQuantity(foodToAdd.getQuantity() + 1);
             return repository.save(foodToAdd);
         }
+    }
+
+    @PostMapping("/remove")
+    public FoodItem removeFoodItem(@RequestBody String name) {
+        FoodItem foodToAdd = repository.findByName(name);
+
+        if (foodToAdd != null) {
+            if (foodToAdd.getQuantity() <= 1) { //delete since we have no more of that item
+                repository.deleteByName(name);
+            } else {
+                foodToAdd.setQuantity(foodToAdd.getQuantity() - 1);
+                return repository.save(foodToAdd);
+            }
+        }
+        return null;
     }
 
     @DeleteMapping("/{name}")
