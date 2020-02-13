@@ -13,4 +13,14 @@ class FoodItemServiceTest {
     void foodServiceTextAll() {
         foodItemService.textUserAllFoodItems();
     }
+
+    @Test
+    void getAllLowQty() {
+        System.out.println(foodItemService.getAllLowQuantityItems());
+    }
+
+    @Test
+    void textLowQtyItems() {
+        foodItemService.textUserAllLowQuantityFoodItems();
+    }
 }

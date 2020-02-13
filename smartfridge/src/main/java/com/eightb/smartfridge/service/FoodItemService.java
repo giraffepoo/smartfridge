@@ -10,5 +10,9 @@ public interface FoodItemService {
     FoodItem addFoodItem(String name);
     FoodItem removeFoodItem(String name);
     Long deleteFoodItem(String name);
+    List<FoodItem> getAllLowQuantityItems();
+
     void textUserAllFoodItems();
+    void textUserAllLowQuantityFoodItems();
+
 }

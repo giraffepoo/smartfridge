@@ -11,11 +11,6 @@ import java.util.List;
 public class FoodItemServiceImpl implements FoodItemService {
     @Autowired
     private FoodItemRepository repository;
-//    private final FoodItemRepository repository;
-//
-//    public FoodItemServiceImpl(FoodItemRepository repository) {
-//        this.repository = repository;
-//    }
 
     @Override
     public List<FoodItem> getAllFoodItems() {
@@ -66,10 +61,32 @@ public class FoodItemServiceImpl implements FoodItemService {
 
         sb.append("Current items in your fridge: \n");
 
-        for (FoodItem fi : allFoodItems) {
-            sb.append(fi.getName()).append(": ").append("qty=").append(fi.getQuantity()).append("\n");
-        }
+        formatListFoodItemIntoString(sb, allFoodItems);
 
         TwilioMessage.sendMessage(sb.toString());
     }
+
+    @Override
+    public List<FoodItem> getAllLowQuantityItems() {
+        return repository.findByQuantityLessThanEqual(1);
+    }
+
+    @Override
+    public void textUserAllLowQuantityFoodItems() {
+        List<FoodItem> allFoodItems = repository.findByQuantityLessThanEqual(1);
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("You're running low on: \n");
+
+        formatListFoodItemIntoString(sb, allFoodItems);
+
+        TwilioMessage.sendMessage(sb.toString());
+    }
+
+    private void formatListFoodItemIntoString(StringBuilder sb, List<FoodItem> foodItems) {
+        for (FoodItem fi : foodItems) {
+            sb.append(fi.getName()).append(": ").append("qty=").append(fi.getQuantity()).append("\n");
+        }
+    }
+
 }
