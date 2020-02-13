@@ -11,8 +11,16 @@ public class FoodItem {
     private String name;
     private int quantity;
     private Date createdDate;
+    private int imageId;
 
     public FoodItem() {}
+
+    public FoodItem(String name, int quantity, Date createdDate, int imageId) {
+        this.name = name;
+        this.quantity = quantity;
+        this.createdDate = createdDate;
+        this.imageId = imageId;
+    }
 
     public FoodItem(String name, int quantity) {
         this.name = name;
@@ -42,6 +50,14 @@ public class FoodItem {
 
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public int getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
     }
 
     @Override

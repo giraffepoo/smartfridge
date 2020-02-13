@@ -2,6 +2,9 @@ package com.eightb.smartfridge.controller;
 
 import com.eightb.smartfridge.model.FoodItem;
 import com.eightb.smartfridge.repository.FoodItemRepository;
+import com.eightb.smartfridge.service.FoodItemService;
+import com.eightb.smartfridge.service.TwilioMessage;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -11,52 +14,36 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/fooditem")
 public class FoodItemController {
-
-    private final FoodItemRepository repository;
-
-    public FoodItemController(FoodItemRepository repository) {
-        this.repository = repository;
-    }
+    @Autowired
+    FoodItemService foodItemService;
 
     @GetMapping("/")
     List<FoodItem> getAllFoodItems() {
-        return repository.findAll();
+        return foodItemService.getAllFoodItems();
+    }
+
+    @GetMapping("/text")
+    void getAllFoodItemsText() {
+        foodItemService.textUserAllFoodItems();
     }
 
     @GetMapping("/{name}")
     FoodItem getFoodItem(@PathVariable String name) {
-        return repository.findByName(name);
+        return foodItemService.getFoodItem(name);
     }
 
     @PostMapping("/add")
-    public FoodItem addFoodItem(@RequestBody String name) {
-        FoodItem foodToAdd = repository.findByName(name);
-
-        if (foodToAdd == null) {
-            return repository.save(new FoodItem(name,1));
-        } else {
-            foodToAdd.setQuantity(foodToAdd.getQuantity() + 1);
-            return repository.save(foodToAdd);
-        }
+    FoodItem addFoodItem(@RequestBody String name) {
+       return foodItemService.addFoodItem(name);
     }
 
     @PostMapping("/remove")
     public FoodItem removeFoodItem(@RequestBody String name) {
-        FoodItem foodToAdd = repository.findByName(name);
-
-        if (foodToAdd != null) {
-            if (foodToAdd.getQuantity() <= 1) { //delete since we have no more of that item
-                repository.deleteByName(name);
-            } else {
-                foodToAdd.setQuantity(foodToAdd.getQuantity() - 1);
-                return repository.save(foodToAdd);
-            }
-        }
-        return null;
+        return foodItemService.removeFoodItem(name);
     }
 
     @DeleteMapping("/{name}")
     Long deleteFoodItem(@PathVariable String name) {
-        return repository.deleteByName(name);
+        return foodItemService.deleteFoodItem(name);
     }
 }
