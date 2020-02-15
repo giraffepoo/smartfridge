@@ -1,3 +1,6 @@
+### Server Address
+http://smartfridgeeightb.azurewebsites.net/
+
 ## API for FoodItem
 
 ### Structure:
@@ -31,3 +34,6 @@
 |GET getAllFoodItems|/api/fooditem|
 |GET getFoodItem|/api/fooditem/{name}|
 |DELETE deleteFoodItem|/api/fooditem/{name}|
+|GET getAllFoodItems|/api/fooditem|
+|GET textUserAllFoodItems|/api/text/text/all-items||
+|GET getAllLowQuantityItemsText|/api/text/low-quantity-items||

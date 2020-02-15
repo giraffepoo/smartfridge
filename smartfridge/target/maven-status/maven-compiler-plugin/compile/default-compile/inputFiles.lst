@@ -1,4 +1,7 @@
+/Users/Victor/Documents/UBC/CPEN 391/smartfridge/src/main/java/com/eightb/smartfridge/service/TwilioMessage.java
 /Users/Victor/Documents/UBC/CPEN 391/smartfridge/src/main/java/com/eightb/smartfridge/model/FoodItem.java
+/Users/Victor/Documents/UBC/CPEN 391/smartfridge/src/main/java/com/eightb/smartfridge/service/FoodItemServiceImpl.java
 /Users/Victor/Documents/UBC/CPEN 391/smartfridge/src/main/java/com/eightb/smartfridge/repository/FoodItemRepository.java
+/Users/Victor/Documents/UBC/CPEN 391/smartfridge/src/main/java/com/eightb/smartfridge/service/FoodItemService.java
 /Users/Victor/Documents/UBC/CPEN 391/smartfridge/src/main/java/com/eightb/smartfridge/controller/FoodItemController.java
 /Users/Victor/Documents/UBC/CPEN 391/smartfridge/src/main/java/com/eightb/smartfridge/SmartfridgeApplication.java

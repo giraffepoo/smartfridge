@@ -22,9 +22,14 @@ public class FoodItemController {
         return foodItemService.getAllFoodItems();
     }
 
-    @GetMapping("/text")
+    @GetMapping("/text/all-items")
     void getAllFoodItemsText() {
         foodItemService.textUserAllFoodItems();
+    }
+
+    @GetMapping("/text/low-quantity-items")
+    void getAllLowQuantityItemsText() {
+        foodItemService.textUserAllLowQuantityFoodItems();
     }
 
     @GetMapping("/{name}")
