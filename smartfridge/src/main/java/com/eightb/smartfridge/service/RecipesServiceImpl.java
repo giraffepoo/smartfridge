@@ -6,7 +6,6 @@ import com.eightb.smartfridge.model.edamam.RecipeQuery;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.springframework.http.*;
-import org.springframework.http.client.support.BasicAuthorizationInterceptor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -40,8 +39,6 @@ public class RecipesServiceImpl implements RecipesService {
         headers.set("app_key", "debf626afaa55521cfaa3619d684a27b");
         HttpEntity entity = new HttpEntity(headers);
 
-
-
         Map<String,String> queryParams = new HashMap<>();
         queryParams.put("app_id", "02a20196");
         queryParams.put("app_key", "debf626afaa55521cfaa3619d684a27b");
@@ -55,14 +52,7 @@ public class RecipesServiceImpl implements RecipesService {
         ThreadLocalRandom.current().ints(0, allFoodItems.size()-1).distinct().limit(3)
                 .forEach(i -> {
                     builderUri.replaceQueryParam("q", allFoodItems.get(i).getName()); //set query to food item name at the random index
-//                    System.out.println(builderUri.build().toUri());
-//                    RecipeQuery recipeQuery = restTemplate.getForObject(resourceUrl, RecipeQuery.class, builderUri.build().toUri());
                     RecipeQuery recipeQuery = restTemplate.getForObject(builderUri.build().toUri(), RecipeQuery.class);
-//                    RecipeQuery recipeQuery = restTemplate.getForObject(resourceUrl, RecipeQuery.class, queryParams);
-//                    Recipe recipeQuery = restTemplate.getForEntity(resourceUrl, HttpMethod.GET, entity, Recipe.class);
-//                            ResponseEntity<RecipeQuery> response = restTemplate.exchange(resourceUrl, HttpMethod.GET, entity, RecipeQuery.class);
-//                            RecipeQuery recipeQuery = response.getBody();
-
 
                     assert recipeQuery != null;
                     if(recipeQuery.getCount() > 1) {
