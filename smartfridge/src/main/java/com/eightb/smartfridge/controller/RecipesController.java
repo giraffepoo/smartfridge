@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+
 @RestController
 @RequestMapping("/api/recipes")
 public class RecipesController {
@@ -13,7 +16,7 @@ public class RecipesController {
     RecipesService recipesService;
 
     @GetMapping("/text/suggest-recipes")
-    void textSuggestedRecipes() {
+    void textSuggestedRecipes() throws IOException {
         recipesService.textUserSuggestedRecipes();
     }
 
