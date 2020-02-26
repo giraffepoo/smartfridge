@@ -2,12 +2,14 @@ package com.eightb.smartfridge.service;
 
 import com.eightb.smartfridge.model.FoodItem;
 import com.eightb.smartfridge.model.camera.Predictions;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 
 import static java.util.Map.entry;
 
+@Service
 public interface FoodItemService {
     Map<String, Integer> imageIdMap = Map.ofEntries(
             entry("default", 0),
@@ -53,6 +55,8 @@ public interface FoodItemService {
             entry("yogurt", 40),
             entry("apple", 41)
     );
+
+    //FoodItem Database Operations
     List<FoodItem> getAllFoodItems();
     FoodItem getFoodItem(String name);
     FoodItem addFoodItem(String name);
@@ -61,6 +65,7 @@ public interface FoodItemService {
     Long deleteFoodItem(String name);
     List<FoodItem> getAllLowQuantityItems();
 
+    //Twilio Texting Operations
     void textUserAllFoodItems();
     void textUserAllLowQuantityFoodItems();
 

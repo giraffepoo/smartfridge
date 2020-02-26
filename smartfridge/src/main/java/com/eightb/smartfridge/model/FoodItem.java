@@ -12,6 +12,7 @@ public class FoodItem {
     private int quantity;
     private Date createdDate;
     private int imageId;
+    private int ownerId;
 
     public FoodItem() {}
 
@@ -20,6 +21,7 @@ public class FoodItem {
         this.quantity = quantity;
         this.createdDate = new Date();
         this.imageId = imageId;
+        this.ownerId = 0; //todo: update this value based on owner of item
     }
 
     public FoodItem(String name, int quantity) {
@@ -58,6 +60,14 @@ public class FoodItem {
 
     public void setImageId(int imageId) {
         this.imageId = imageId;
+    }
+
+    public int getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(int ownerId) {
+        this.ownerId = ownerId;
     }
 
     @Override
