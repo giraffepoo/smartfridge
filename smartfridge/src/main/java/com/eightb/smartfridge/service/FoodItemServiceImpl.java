@@ -1,6 +1,7 @@
 package com.eightb.smartfridge.service;
 
 import com.eightb.smartfridge.model.FoodItem;
+import com.eightb.smartfridge.model.camera.Predictions;
 import com.eightb.smartfridge.repository.FoodItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,15 +25,27 @@ public class FoodItemServiceImpl implements FoodItemService {
 
     @Override
     public FoodItem addFoodItem(String name) {
-        FoodItem foodToAdd = repository.findByName(name);
+        return addItemBasedOnQuantity(repository.findByName(name), name);
 
+    }
+
+    @Override
+    public FoodItem addFoodItem(Predictions predictions) {
+        String nameOfItemToAdd = predictions.getLabels().get(0);
+
+        return addItemBasedOnQuantity(repository.findByName(nameOfItemToAdd), nameOfItemToAdd);
+    }
+
+    private FoodItem addItemBasedOnQuantity(FoodItem foodToAdd, String nameOfItemToAdd) {
+        int imageId = imageIdMap.getOrDefault(nameOfItemToAdd, 0); //default imageId if not found
         if (foodToAdd == null) {
-            return repository.save(new FoodItem(name,1));
+            return repository.save(new FoodItem(nameOfItemToAdd,1, imageId));
         } else {
             foodToAdd.setQuantity(foodToAdd.getQuantity() + 1);
             return repository.save(foodToAdd);
         }
     }
+
 
     @Override
     public FoodItem removeFoodItem(String name) {

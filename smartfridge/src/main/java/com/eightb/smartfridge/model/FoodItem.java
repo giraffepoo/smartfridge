@@ -15,10 +15,10 @@ public class FoodItem {
 
     public FoodItem() {}
 
-    public FoodItem(String name, int quantity, Date createdDate, int imageId) {
+    public FoodItem(String name, int quantity, int imageId) {
         this.name = name;
         this.quantity = quantity;
-        this.createdDate = createdDate;
+        this.createdDate = new Date();
         this.imageId = imageId;
     }
 

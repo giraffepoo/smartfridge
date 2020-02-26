@@ -1,6 +1,7 @@
 package com.eightb.smartfridge.controller;
 
 import com.eightb.smartfridge.model.FoodItem;
+import com.eightb.smartfridge.model.camera.Predictions;
 import com.eightb.smartfridge.repository.FoodItemRepository;
 import com.eightb.smartfridge.service.FoodItemService;
 import com.eightb.smartfridge.service.TwilioMessage;
@@ -40,6 +41,11 @@ public class FoodItemController {
     @PostMapping("/add")
     FoodItem addFoodItem(@RequestBody String name) {
        return foodItemService.addFoodItem(name);
+    }
+
+    @PostMapping("/camera/add")
+    FoodItem addFoodItem(@RequestBody Predictions predictions) {
+        return foodItemService.addFoodItem(predictions);
     }
 
     @PostMapping("/remove")
