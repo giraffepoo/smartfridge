@@ -29,11 +29,12 @@ http://smartfridgeeightb.azurewebsites.net/
 
 |Action  |Endpoint  | Payload |
 |--|--|--|
-| POST addFoodItem | /api/fooditem/add | -String name of item |
-| POST removeFoodItem | /api/fooditem/remove | -String name of item |
+| POST addFoodItem | /api/fooditem/add | (format: text)&nbsp;  -name of item |
+| POST addFoodItem | /api/fooditem/add | (format: JSON)&nbsp; `{"labels": ["a","b"], "simlarity": 0.0}` |
+| POST removeFoodItem | /api/fooditem/remove | (format: text)&nbsp; -name of item |
 |GET getAllFoodItems|/api/fooditem|
 |GET getFoodItem|/api/fooditem/{name}|
 |DELETE deleteFoodItem|/api/fooditem/{name}|
 |GET getAllFoodItems|/api/fooditem|
-|GET getAllFoodItemsText|/api/text/text/all-items||
+|GET getAllFoodItemsText|/api/text/all-items||
 |GET getAllLowQuantityItemsText|/api/text/low-quantity-items||
