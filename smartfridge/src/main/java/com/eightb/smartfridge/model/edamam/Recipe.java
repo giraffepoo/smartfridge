@@ -7,10 +7,10 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Recipe {
     private String label; //title of recipe
-    private String imageUrl;
+    private String image; //url of image
     private String url;
     private List<String> ingredientLines; //array with one item, containing formatted ingredient string
-    private List<Ingredient> ingredients;
+//    private List<Ingredient> ingredients;
     private double yield; //amount of people can serve
 
     public Recipe() {
@@ -40,12 +40,12 @@ public class Recipe {
         this.yield = yield;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getImage() {
+        return image;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getUrl() {
@@ -54,13 +54,5 @@ public class Recipe {
 
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public List<Ingredient> getIngredients() {
-        return ingredients;
-    }
-
-    public void setIngredients(List<Ingredient> ingredients) {
-        this.ingredients = ingredients;
     }
 }

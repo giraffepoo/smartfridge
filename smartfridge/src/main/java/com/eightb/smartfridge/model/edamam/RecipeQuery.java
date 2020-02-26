@@ -7,7 +7,7 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RecipeQuery {
     private int count;
-    private List<Recipe> hits;
+    private List<Hit> hits;
 
     public RecipeQuery() {
     }
@@ -20,11 +20,11 @@ public class RecipeQuery {
         this.count = count;
     }
 
-    public List<Recipe> getHits() {
+    public List<Hit> getHits() {
         return hits;
     }
 
-    public void setHits(List<Recipe> hits) {
+    public void setHits(List<Hit> hits) {
         this.hits = hits;
     }
 }
