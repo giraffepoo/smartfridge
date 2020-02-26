@@ -33,20 +33,9 @@ public class RecipesServiceImpl implements RecipesService {
         RestTemplate restTemplate = new RestTemplate();
         String resourceUrl = "http://api.edamam.com/search";
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.set("app_id", "02a20196");
-        headers.set("app_key", "debf626afaa55521cfaa3619d684a27b");
-        HttpEntity entity = new HttpEntity(headers);
-
-        Map<String,String> queryParams = new HashMap<>();
-        queryParams.put("app_id", "02a20196");
-        queryParams.put("app_key", "debf626afaa55521cfaa3619d684a27b");
-
         UriComponentsBuilder builderUri = UriComponentsBuilder.fromUriString(resourceUrl)
                 .queryParam("app_id", "02a20196")
                 .queryParam("app_key","debf626afaa55521cfaa3619d684a27b");
-
 
         //Generate 3 indices for allFoodItems, perform API call on each item based on index
         ThreadLocalRandom.current().ints(0, allFoodItems.size()-1).distinct().limit(3)
