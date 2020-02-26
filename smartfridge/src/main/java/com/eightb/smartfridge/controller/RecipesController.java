@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 
 @RestController
 @RequestMapping("/api/recipes")
@@ -16,7 +17,7 @@ public class RecipesController {
     RecipesService recipesService;
 
     @GetMapping("/text/suggest-recipes")
-    void textSuggestedRecipes() throws IOException {
+    void textSuggestedRecipes() throws IOException, URISyntaxException {
         recipesService.textUserSuggestedRecipes();
     }
 
