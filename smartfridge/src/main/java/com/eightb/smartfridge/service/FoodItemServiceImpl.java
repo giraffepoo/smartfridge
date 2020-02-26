@@ -76,7 +76,7 @@ public class FoodItemServiceImpl implements FoodItemService {
 
         formatListFoodItemIntoString(sb, allFoodItems);
 
-        TwilioMessage.sendMessage(sb.toString());
+        TwilioMessage.sendSMSMessage(sb.toString());
     }
 
     @Override
@@ -93,7 +93,7 @@ public class FoodItemServiceImpl implements FoodItemService {
 
         formatListFoodItemIntoString(sb, allFoodItems);
 
-        TwilioMessage.sendMessage(sb.toString());
+        TwilioMessage.sendSMSMessage(sb.toString());
     }
 
     private void formatListFoodItemIntoString(StringBuilder sb, List<FoodItem> foodItems) {

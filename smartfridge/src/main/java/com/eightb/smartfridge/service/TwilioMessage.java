@@ -11,12 +11,25 @@ public class TwilioMessage {
 //    private static String TO_PHONE_NUMBER = "+14039038103";
     private static String TO_PHONE_NUMBER = "+17787980645";
 
-    public static void sendMessage(String messageText) {
+    public static void sendSMSMessage(String messageText) {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
         Message message = Message.creator(new PhoneNumber(TO_PHONE_NUMBER),
                 new PhoneNumber(FROM_PHONE_NUMBER), messageText).create();
 
-        System.out.println("Twilio message sent with ID: " + message.getSid());
+        System.out.println("Twilio SMS message sent with ID: " + message.getSid());
     }
+
+    //Text message with image
+    public static void sendMMSMessge(String messageText, String imageUrl) {
+        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+
+        Message message = Message.creator(new PhoneNumber(TO_PHONE_NUMBER),
+                new PhoneNumber(FROM_PHONE_NUMBER), messageText).setMediaUrl(imageUrl).create();
+
+        System.out.println("Twilio MMS message sent with ID: " + message.getSid());
+
+    }
+
+
 }
