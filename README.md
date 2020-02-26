@@ -29,9 +29,9 @@ http://smartfridgeeightb.azurewebsites.net/
 
 |Action  |Endpoint  | Payload |
 |--|--|--|
-| POST addFoodItem | /api/fooditem/add | (format: text)&nbsp;  -name of item |
-| POST addFoodItem | /api/fooditem/add | (format: JSON)&nbsp; `{"labels": ["a","b"], "simlarity": 0.0}` |
-| POST removeFoodItem | /api/fooditem/remove | (format: text)&nbsp; -name of item |
+| POST addFoodItem | /api/fooditem/add | (format: text)<br />  -name of item |
+| POST addFoodItem | /api/fooditem/add | (format: JSON)<br /> `{"labels": ["a","b"], "simlarity": 0.0}` |
+| POST removeFoodItem | /api/fooditem/remove | (format: text)<br /> -name of item |
 |GET getAllFoodItems|/api/fooditem|
 |GET getFoodItem|/api/fooditem/{name}|
 |DELETE deleteFoodItem|/api/fooditem/{name}|
