@@ -36,5 +36,5 @@ http://smartfridgeeightb.azurewebsites.net/
 |GET getFoodItem|/api/fooditem/{name}|
 |DELETE deleteFoodItem|/api/fooditem/{name}|
 |GET getAllFoodItems|/api/fooditem|
-|GET getAllFoodItemsText|/api/text/all-items||
-|GET getAllLowQuantityItemsText|/api/text/low-quantity-items||
+|GET getAllFoodItemsText|/api/fooditem/text/all-items||
+|GET getAllLowQuantityItemsText|/api/fooditem/text/low-quantity-items||
