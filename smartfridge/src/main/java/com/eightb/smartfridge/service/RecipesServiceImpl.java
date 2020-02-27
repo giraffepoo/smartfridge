@@ -5,14 +5,11 @@ import com.eightb.smartfridge.model.edamam.Recipe;
 import com.eightb.smartfridge.model.edamam.RecipeQuery;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Component
@@ -61,7 +58,7 @@ public class RecipesServiceImpl implements RecipesService {
         for(String ingredientLine : recipe.getIngredientLines()) {
             sb.append(ingredientLine).append("\n");
         }
-        sb.append("Serves up to: ").append(recipe.getYield()).append("\n");
+        sb.append("Serves up to: ").append(recipe.getYield()).append(" people\n\n");
         sb.append("Instructions: ").append(recipe.getUrl());
         return sb.toString();
     }

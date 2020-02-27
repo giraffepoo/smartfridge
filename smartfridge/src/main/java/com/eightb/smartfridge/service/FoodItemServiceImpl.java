@@ -20,18 +20,18 @@ public class FoodItemServiceImpl implements FoodItemService {
 
     @Override
     public FoodItem getFoodItem(String name) {
-        return repository.findByName(name);
+        return repository.findByName(name.toLowerCase().trim());
     }
 
     @Override
     public FoodItem addFoodItem(String name) {
-        return addItemBasedOnQuantity(repository.findByName(name), name);
+        return addItemBasedOnQuantity(repository.findByName(name.toLowerCase().trim()), name.toLowerCase().trim());
 
     }
 
     @Override
     public FoodItem addFoodItem(Predictions predictions) {
-        String nameOfItemToAdd = predictions.getLabels().get(0);
+        String nameOfItemToAdd = predictions.getLabels().get(0).toLowerCase().trim();
 
         return addItemBasedOnQuantity(repository.findByName(nameOfItemToAdd), nameOfItemToAdd);
     }
@@ -49,7 +49,7 @@ public class FoodItemServiceImpl implements FoodItemService {
 
     @Override
     public FoodItem removeFoodItem(String name) {
-        FoodItem foodToAdd = repository.findByName(name);
+        FoodItem foodToAdd = repository.findByName(name.trim().toLowerCase());
 
         if (foodToAdd != null) {
             if (foodToAdd.getQuantity() <= 1) { //delete since we have no more of that item
@@ -64,7 +64,7 @@ public class FoodItemServiceImpl implements FoodItemService {
 
     @Override
     public Long deleteFoodItem(String name) {
-        return repository.deleteByName(name);
+        return repository.deleteByName(name.toLowerCase().trim());
     }
 
     @Override
@@ -89,16 +89,25 @@ public class FoodItemServiceImpl implements FoodItemService {
         List<FoodItem> allFoodItems = repository.findByQuantityLessThanEqual(1);
         StringBuilder sb = new StringBuilder();
 
-        sb.append("You're running low on: \n");
+        sb.append("In your fridge, you might be running low on: \n");
 
-        formatListFoodItemIntoString(sb, allFoodItems);
+        formatListFoodItemIntoStringWithRestock(sb, allFoodItems);
 
         TwilioMessage.sendSMSMessage(sb.toString());
     }
 
+    private void formatListFoodItemIntoStringWithRestock(StringBuilder sb, List<FoodItem> foodItems) {
+        int i = 1;
+        for (FoodItem fi : foodItems) {
+            sb.append(i).append(". ").append(fi.getName()).append(": ").append("Quantity remaining=").append(fi.getQuantity()).append("\n")
+                    .append("Buy more at: ").append("https://www.walmart.ca/search/").append(fi.getName()).append("/N-117").append("\n");
+            i++;
+        }
+    }
+
     private void formatListFoodItemIntoString(StringBuilder sb, List<FoodItem> foodItems) {
         for (FoodItem fi : foodItems) {
-            sb.append(fi.getName()).append(": ").append("qty=").append(fi.getQuantity()).append("\n");
+            sb.append(fi.getName()).append(": ").append("Quantity remaining=").append(fi.getQuantity()).append("\n");
         }
     }
 

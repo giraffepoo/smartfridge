@@ -38,4 +38,4 @@ http://smartfridgeeightb.azurewebsites.net/
 |GET getAllFoodItems|/api/fooditem|
 |GET getAllFoodItemsText|/api/fooditem/text/all-items||
 |GET getAllLowQuantityItemsText|/api/fooditem/text/low-quantity-items||
-|GET textSuggestedRecipes|/api/recipes//text/suggest-recipes||
+|GET textSuggestedRecipes|/api/recipes/text/suggest-recipes||

@@ -43,6 +43,16 @@
             <artifactId>twilio</artifactId>
             <version>7.42.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.microsoft.azure.cognitiveservices</groupId>
+            <artifactId>azure-cognitiveservices-websearch</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure</artifactId>
+            <version>1.9.0</version>
+        </dependency>
     </dependencies>
 
     <build>
