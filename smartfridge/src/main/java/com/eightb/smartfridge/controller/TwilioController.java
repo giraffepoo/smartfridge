@@ -14,4 +14,10 @@ public class TwilioController {
     public String incomingMessage(@RequestParam("Body") String body) {
         return twilioService.handleIncomingMessage(body.toLowerCase().trim());
     }
+
+    @PostMapping("/nearby-stores")
+    public boolean textNearbyStores() {
+        twilioService.textNearbyStores();
+        return true;
+    }
 }

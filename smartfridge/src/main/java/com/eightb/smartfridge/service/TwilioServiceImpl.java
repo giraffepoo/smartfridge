@@ -1,6 +1,7 @@
 package com.eightb.smartfridge.service;
 
 import com.eightb.smartfridge.model.FoodItem;
+import com.eightb.smartfridge.util.TwilioMessage;
 import com.twilio.twiml.MessagingResponse;
 import com.twilio.twiml.messaging.Body;
 import com.twilio.twiml.messaging.Message;
@@ -16,6 +17,7 @@ public class TwilioServiceImpl implements TwilioService {
 
     @Override
     public String handleIncomingMessage(String body) {
+        System.out.println("Received incoming text: " + body);
         switch (body) {
             case "items":  //text user all items in fridge
                 List<FoodItem> allItems = foodItemService.getAllFoodItems();
@@ -32,6 +34,11 @@ public class TwilioServiceImpl implements TwilioService {
                         "3. stores (to get the nearest grocery stores)" + "\n";
                 return buildStringToSMSXML(infoMsg);
         }
+    }
+
+    @Override
+    public void textNearbyStores() {
+        TwilioMessage.sendSMSMessage(BingSearch.searchNearbyGroceryStores("UBC"));
     }
 
     private String buildStringToSMSXML (String str) {
