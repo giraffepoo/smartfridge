@@ -69,4 +69,8 @@ public interface FoodItemService {
     void textUserAllFoodItems();
     void textUserAllLowQuantityFoodItems();
 
+    //Formatting list of food items to String
+    String formatListFoodItemIntoStringWithRestock(List<FoodItem> foodItems);
+    String formatListFoodItemIntoString(List<FoodItem> foodItems);
+
 }

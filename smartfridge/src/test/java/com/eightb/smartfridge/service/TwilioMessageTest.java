@@ -1,5 +1,6 @@
 package com.eightb.smartfridge.service;
 
+import com.eightb.smartfridge.util.TwilioMessage;
 import org.junit.jupiter.api.Test;
 
 class TwilioMessageTest {

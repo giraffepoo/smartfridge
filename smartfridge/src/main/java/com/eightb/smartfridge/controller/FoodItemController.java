@@ -2,15 +2,11 @@ package com.eightb.smartfridge.controller;
 
 import com.eightb.smartfridge.model.FoodItem;
 import com.eightb.smartfridge.model.camera.Predictions;
-import com.eightb.smartfridge.repository.FoodItemRepository;
 import com.eightb.smartfridge.service.FoodItemService;
-import com.eightb.smartfridge.service.TwilioMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/fooditem")

@@ -8,7 +8,6 @@ com/eightb/smartfridge/model/edamam/Hit.class
 com/eightb/smartfridge/model/edamam/RecipeQuery.class
 com/eightb/smartfridge/model/edamam/Recipe.class
 com/eightb/smartfridge/controller/TwilioController.class
-com/eightb/smartfridge/service/TwilioMessage.class
 com/eightb/smartfridge/controller/RecipesController.class
 com/eightb/smartfridge/service/FoodItemServiceImpl.class
 com/eightb/smartfridge/service/FoodItemService.class

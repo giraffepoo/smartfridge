@@ -3,6 +3,7 @@ package com.eightb.smartfridge.service;
 import com.eightb.smartfridge.model.FoodItem;
 import com.eightb.smartfridge.model.edamam.Recipe;
 import com.eightb.smartfridge.model.edamam.RecipeQuery;
+import com.eightb.smartfridge.util.TwilioMessage;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.springframework.stereotype.Component;
@@ -44,7 +45,7 @@ public class RecipesServiceImpl implements RecipesService {
                     if(recipeQuery.getCount() > 1) {
                         Recipe currRecipe = recipeQuery.getHits().get(0).getRecipe();
                         TwilioMessage.sendMMSMessge(formatRecipeIntoTextMessage(currRecipe, allFoodItems.get(i).getName()), currRecipe.getImage());
-                        System.out.println(formatRecipeIntoTextMessage(currRecipe,  allFoodItems.get(i).getName()));
+//                        System.out.println(formatRecipeIntoTextMessage(currRecipe,  allFoodItems.get(i).getName()));
                     }
                 }
         );
