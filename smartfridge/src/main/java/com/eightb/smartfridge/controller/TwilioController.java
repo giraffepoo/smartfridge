@@ -12,6 +12,6 @@ public class TwilioController {
 
     @PostMapping(value = "/incoming-message", produces = {"application/xml"})
     public String incomingMessage(@RequestParam("Body") String body) {
-        return twilioService.handleIncomingMessage(body);
+        return twilioService.handleIncomingMessage(body.toLowerCase().trim());
     }
 }
