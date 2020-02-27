@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -27,7 +28,7 @@ public class RecipesServiceImpl implements RecipesService {
     //Generates 3 random items
     @Override
     public void textUserSuggestedRecipes() {
-        List<FoodItem> allFoodItems = foodItemService.getAllFoodItems();
+        List<FoodItem> allFoodItems = foodItemService.getAllFoodItems(); //todo: change this to get # of items in fridge instead, then generate random index and get at that index
         RestTemplate restTemplate = new RestTemplate();
         String resourceUrl = "http://api.edamam.com/search";
 
@@ -45,10 +46,17 @@ public class RecipesServiceImpl implements RecipesService {
                     if(recipeQuery.getCount() > 1) {
                         Recipe currRecipe = recipeQuery.getHits().get(0).getRecipe();
                         TwilioMessage.sendMMSMessge(formatRecipeIntoTextMessage(currRecipe, allFoodItems.get(i).getName()), currRecipe.getImage());
-//                        System.out.println(formatRecipeIntoTextMessage(currRecipe,  allFoodItems.get(i).getName()));
                     }
                 }
         );
+    }
+
+    //First item in list is formatted text content of recipe, second item is image URL
+    public List<String> suggestUserRecipeString() {
+        List<String> recipeStringWithImageURL = new ArrayList<>();
+
+
+        return recipeStringWithImageURL;
     }
 
     private String formatRecipeIntoTextMessage(Recipe recipe, String fridgeItemName) {

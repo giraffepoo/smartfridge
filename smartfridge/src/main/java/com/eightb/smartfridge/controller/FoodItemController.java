@@ -14,19 +14,21 @@ public class FoodItemController {
     @Autowired
     FoodItemService foodItemService;
 
-    @GetMapping("/")
+    @GetMapping("")
     List<FoodItem> getAllFoodItems() {
         return foodItemService.getAllFoodItems();
     }
 
     @GetMapping("/text/all-items")
-    void getAllFoodItemsText() {
+    boolean getAllFoodItemsText() {
         foodItemService.textUserAllFoodItems();
+        return true;
     }
 
     @GetMapping("/text/low-quantity-items")
-    void getAllLowQuantityItemsText() {
+    boolean getAllLowQuantityItemsText() {
         foodItemService.textUserAllLowQuantityFoodItems();
+        return true;
     }
 
     @GetMapping("/{name}")
@@ -53,4 +55,30 @@ public class FoodItemController {
     Long deleteFoodItem(@PathVariable String name) {
         return foodItemService.deleteFoodItem(name);
     }
+
+
+
+    //============= duplicate endpoints (testing purposes - GET not working for us on DE1)
+    @PostMapping("")
+    List<FoodItem> getAllFoodItemsPOST() {
+        return foodItemService.getAllFoodItems();
+    }
+
+    @PostMapping("/text/all-items")
+    boolean getAllFoodItemsTextPOST() {
+        foodItemService.textUserAllFoodItems();
+        return true;
+    }
+
+    @PostMapping("/text/low-quantity-items")
+    boolean getAllLowQuantityItemsTextPOST() {
+        foodItemService.textUserAllLowQuantityFoodItems();
+        return true;
+    }
+
+    @PostMapping("/{name}")
+    FoodItem getFoodItemPOST(@PathVariable String name) {
+        return foodItemService.getFoodItem(name);
+    }
+
 }

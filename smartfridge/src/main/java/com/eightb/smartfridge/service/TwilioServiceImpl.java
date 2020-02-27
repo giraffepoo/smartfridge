@@ -1,7 +1,6 @@
 package com.eightb.smartfridge.service;
 
 import com.eightb.smartfridge.model.FoodItem;
-import com.eightb.smartfridge.model.twilio.WebhookRequest;
 import com.twilio.twiml.MessagingResponse;
 import com.twilio.twiml.messaging.Body;
 import com.twilio.twiml.messaging.Message;
@@ -16,8 +15,8 @@ public class TwilioServiceImpl implements TwilioService {
     FoodItemService foodItemService;
 
     @Override
-    public String handleIncomingMessage(WebhookRequest request) {
-        switch (request.getBody()) {
+    public String handleIncomingMessage(String body) {
+        switch (body) {
             case "items":  //text user all items in fridge
                 List<FoodItem> allItems = foodItemService.getAllFoodItems();
                 return buildStringToSMSXML(foodItemService.formatListFoodItemIntoString(allItems));

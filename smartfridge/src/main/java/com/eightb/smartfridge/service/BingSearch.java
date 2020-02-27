@@ -35,7 +35,7 @@ public class BingSearch {
                 if (webPageResult == null) {
                     break;
                 }
-                sb.append(i).append(". ").append(webPageResult.name()).append("\n").append(webPageResult.url()).append("\n");
+                sb.append(i+1).append(". ").append(webPageResult.name()).append("\n").append(webPageResult.url()).append("\n");
             }
         } else {
             sb.append("No nearby grocery locations found :(");

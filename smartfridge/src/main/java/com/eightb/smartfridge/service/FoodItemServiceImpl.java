@@ -104,7 +104,7 @@ public class FoodItemServiceImpl implements FoodItemService {
         sb.append("Current items in your fridge: \n");
 
         for (FoodItem fi : foodItems) {
-            sb.append(fi.getName()).append(": ").append("Quantity remaining=").append(fi.getQuantity()).append("\n");
+            sb.append(fi.getName()).append(": ").append("Quantity remaining = ").append(fi.getQuantity()).append("\n");
         }
 
         return sb.toString();
