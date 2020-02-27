@@ -1,0 +1,4 @@
+com/eightb/smartfridge/service/TwilioMessageTest.class
+com/eightb/smartfridge/service/RecipesServiceTest.class
+com/eightb/smartfridge/service/FoodItemServiceTest.class
+com/eightb/smartfridge/SmartfridgeApplicationTests.class

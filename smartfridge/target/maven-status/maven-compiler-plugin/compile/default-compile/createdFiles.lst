@@ -1,0 +1,16 @@
+com/eightb/smartfridge/model/camera/Predictions.class
+com/eightb/smartfridge/service/RecipesServiceImpl.class
+com/eightb/smartfridge/model/FoodItem.class
+com/eightb/smartfridge/repository/FoodItemRepository.class
+com/eightb/smartfridge/service/RecipesService.class
+com/eightb/smartfridge/SmartfridgeApplication.class
+com/eightb/smartfridge/model/edamam/Hit.class
+com/eightb/smartfridge/model/edamam/RecipeQuery.class
+com/eightb/smartfridge/model/edamam/Recipe.class
+com/eightb/smartfridge/controller/TwilioController.class
+com/eightb/smartfridge/service/TwilioMessage.class
+com/eightb/smartfridge/controller/RecipesController.class
+com/eightb/smartfridge/service/FoodItemServiceImpl.class
+com/eightb/smartfridge/service/FoodItemService.class
+com/eightb/smartfridge/model/edamam/Ingredient.class
+com/eightb/smartfridge/controller/FoodItemController.class

@@ -1,1 +1,6 @@
 /Users/Victor/Documents/UBC/CPEN 391/smartfridge/src/test/java/com/eightb/smartfridge/SmartfridgeApplicationTests.java
+/Users/Victor/Documents/UBC/CPEN 391/smartfridge/src/test/java/com/eightb/smartfridge/service/FoodItemServiceTest.java
+/Users/Victor/Documents/UBC/CPEN 391/smartfridge/src/test/java/com/eightb/smartfridge/service/BingSearchTest.java
+/Users/Victor/Documents/UBC/CPEN 391/smartfridge/src/test/java/com/eightb/smartfridge/service/BingAnswerTest.java
+/Users/Victor/Documents/UBC/CPEN 391/smartfridge/src/test/java/com/eightb/smartfridge/service/TwilioMessageTest.java
+/Users/Victor/Documents/UBC/CPEN 391/smartfridge/src/test/java/com/eightb/smartfridge/service/RecipesServiceTest.java
